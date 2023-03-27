@@ -1,29 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
-
-
-function CustomButton() {
-  return (
-    <div>
-      <button
-        style={{ backgroundColor: "red" }}>
-        I
-      </button>
-      <button
-        style={{ backgroundColor: "green" }}>
-        know
-      </button>
-      <button
-        style={{ backgroundColor: "lightblue" }}>
-        React
-      </button>
-    </div>
-  )
-}
+import CustomButton from './CustomButton';
 
 function App() {
   return (
-  <CustomButton />
+  <div>
+    <CustomButton text="I" color="red"/>
+    <CustomButton text="know" color="green" />
+    <CustomButton text="React!" color="lightblue" />
+  </div>
 );
 }
 
