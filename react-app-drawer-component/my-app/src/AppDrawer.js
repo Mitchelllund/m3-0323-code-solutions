@@ -7,19 +7,20 @@ export default function AppDrawer() {
 
   function handleSpanClick(e) {
     setShowModal(!showModal);
+  };
+
+  function handleModalClick(e) {
     if (e.target.className === 'modal') {
-      showModal(!false);
+      setShowModal(false);
     }
   };
 
-
-  return (
-    <>
-      <span className='extra' onClick={handleSpanClick}><FaBars /></span>
-      {showModal && (
-      <div className="modal">
+  let modal = null;
+  if (showModal) {
+    modal = (
+      <div className="modal" onClick={handleModalClick}>
         <div className="modal-content">
-          <h1 >Choose a Game</h1>
+          <h1>Choose a Game</h1>
           <h2 onClick={handleSpanClick}>The Legend of Zelda</h2>
           <h2 onClick={handleSpanClick}>A Link to the Past</h2>
           <h2 onClick={handleSpanClick}>Ocarina in Time</h2>
@@ -27,7 +28,13 @@ export default function AppDrawer() {
           <h2 onClick={handleSpanClick}>Breath of the Wild</h2>
         </div>
       </div>
-      )}
+    );
+  }
+
+  return (
+    <>
+      <span className='extra' onClick={handleSpanClick}><FaBars /></span>
+      {modal}
     </>
-  )
+  );
 }
